@@ -14,3 +14,4 @@ Prodi  : Teknik Informatika
 
 ## Link Tugas Praktikum
 * Tugas Pertemuan 2 : [Link](https://github.com/Nazyli/frontend-programming/tree/pertemuan-2)
+* Tugas Pertemuan 3 : [Link](https://github.com/Nazyli/frontend-programming/tree/pertemuan-3)
