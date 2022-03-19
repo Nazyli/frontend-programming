@@ -1,0 +1,88 @@
+.container {
+  margin: 1rem;
+}
+
+.addmovie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+
+}
+
+.addmovie__left{
+    margin-bottom: 1rem;
+}
+
+.addmovie__image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+.addmovie__title {
+  color: #4361ee;
+  margin-bottom: 1rem;
+  font-size: 2.44rem;
+}
+.addmovie_form {
+  align-items: center;
+}
+
+.addmovie__label {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: left;
+}
+.addmovie__input {
+  width: 90%;
+  height: 43px;
+  background: #ffffff;
+  border: 2px solid #4361ee;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.addmovie__submit {
+  margin-top: 1rem;
+  width: 90%;
+  height: 43px;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #4361ee;
+  color: #fff;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+  /*
+     * Nothing TODO Here.
+     * We dont change style addmovie. 
+     */
+}
+
+/* Large Screen */
+@media (min-width: 992px) {
+  .container {
+    max-width: 1200px;
+    margin: 3rem auto;
+  }
+
+  .addmovie {
+    margin: 0 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .addmovie__left {
+    flex-basis: 60%;
+  }
+
+  .addmovie__right {
+    flex-basis: 40%;
+  }
+}

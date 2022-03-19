@@ -12,4 +12,9 @@ NIM    : 0110220045
 Prodi  : Teknik Informatika
 ```
 
-## Link Tugas Praktikum
+## Screenshots
+
+### Results
+![picture](results.png)
+
+# Task Pertemuan 5
