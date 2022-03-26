@@ -4,7 +4,7 @@ function Navbar() {
         <div className={style.container}>
             <nav className={style.navbar}>
                 <div>
-                    <h1 className={style.navbar__brand}>Navbar</h1>
+                    <h1 className={style.navbar__brand}>Movie App</h1>
                 </div>
                 <div>
                     <ul className={style.navbar__list}>
