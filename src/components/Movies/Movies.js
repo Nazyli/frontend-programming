@@ -1,11 +1,9 @@
 import Movie from "../Movie/Movie";
 import style from "./Movies.module.css";
-import data from "./../../utils/constants/data"
 import { nanoid } from "nanoid"
-import { useState } from "react";
 
-function Movies() {
-  const [movies, setMovies] = useState(data);
+function Movies(props) {
+  const {movies, setMovies} = props;
 
   function tambahFilm() {
     const movie = {
@@ -18,6 +16,7 @@ function Movies() {
     }
     // copy and merge array
     setMovies([...movies, movie])
+    // setMovies(movies.concat(movie))
   }
   return (
     <div className={style.container}>

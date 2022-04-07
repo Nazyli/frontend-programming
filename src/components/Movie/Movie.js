@@ -11,7 +11,7 @@ function Movie(props) {
                 alt={movie.title}
             />
             <h3 className={style.movie__title}>{movie.title} </h3>
-            <p className={style.movie__date}>{movie.year} </p>
+            <p className={style.movie__date}>{movie.year} / {movie.type} </p>
         </div>
     );
 };
