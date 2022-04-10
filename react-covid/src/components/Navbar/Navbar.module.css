@@ -1,0 +1,56 @@
+/* Small Screen */
+.container {
+  background-color: #1e90ff;
+  padding: 1rem;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__brand {
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 48px;
+  line-height: 72px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.navbar__list {
+  font-size: 25px;
+  font-weight: 400;
+  list-style: none;
+}
+.navbar__item {
+  margin-bottom: 1rem;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+}
+
+/* Large Screen */
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem auto;
+  }
+  .navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar__brand {
+    margin: 0;
+  }
+  .navbar__list {
+    display: flex;
+  }
+  .navbar__item {
+    margin: 0 1rem;
+  }
+}

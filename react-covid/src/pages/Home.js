@@ -1,4 +1,4 @@
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import Hello from "../components/Hello";
 import Navbar from "../components/Navbar/Navbar";
 
