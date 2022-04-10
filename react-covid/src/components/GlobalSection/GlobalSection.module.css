@@ -1,0 +1,50 @@
+/* Small Screen */
+.container {
+  background-color: #ecf0f1;
+  margin: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.global__section {
+  margin: 5rem 0;
+  text-align: center;
+}
+.section__title {
+  color: #1e90ff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 61px;
+  margin-bottom: 1rem;
+}
+.section__description {
+  color: #118ab2;
+  margin-bottom: 5rem;
+  font-size: 1.59rem;
+  text-align: center;
+}
+
+.section__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+/* Medium Screen */
+@media (min-width: 768px) {
+}
+/* Large Screen */
+@media (min-width: 992px) {
+  .container {
+    margin: 3rem auto;
+  }
+
+  .section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
