@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Hello from "../components/Hello";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 
 function Main() {
   return (
