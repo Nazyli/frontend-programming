@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./AddCovidForm.module.css"
 import formLogo from "../../assets/img/conceptual_idea.png"
+import Alert from "../Alert/Alert"
 
 function AddCovidForm(props) {
     const { provinces, setProvinces } = props;
@@ -10,6 +11,7 @@ function AddCovidForm(props) {
         status: "",
         jumlah: "",
     })
+
     const [isError, setIsError] = useState({
         provinsi: false,
         status: false,
@@ -27,7 +29,7 @@ function AddCovidForm(props) {
             setIsError({ ...isError, provinsi: true })
         } else if (state.status === "") {
             setIsError({ ...isError, status: true })
-        } else if (state.jumlah === 0) {
+        } else if (state.jumlah === "") {
             setIsError({ ...isError, jumlah: true })
         } else {
             const province = provinces.find(function (data) {
@@ -74,14 +76,14 @@ function AddCovidForm(props) {
                             <select onChange={handleChange} className={styles.form__select} name="provinsi">
                                 <option></option>
                                 {
-                                    provinces.map(function (data) {
+                                    provinces.map(function (data, index) {
                                         return (
-                                            <option value={data.kota}>{data.kota}</option>
+                                            <option key={index} value={data.kota}>{data.kota}</option>
                                         )
                                     })
                                 }
                             </select>
-                            {isError.provinsi && <p>Provinsi Wajib Diisi</p>}
+                            {isError.provinsi && <Alert>Provinsi Wajib Diisi</Alert>}
                         </div>
 
                         <div className={styles.form__group}>
@@ -95,7 +97,7 @@ function AddCovidForm(props) {
                                 <option value="dirawat">Dirawat</option>
                                 <option value="meninggal">Meninggal</option>
                             </select>
-                            {isError.status && <p>Status Wajib Diisi</p>}
+                            {isError.status && <Alert>Status Wajib Diisi</Alert>}
                         </div>
 
                         <div className={styles.form__group}>
@@ -109,7 +111,7 @@ function AddCovidForm(props) {
                                 className={styles.form__input}
                                 type="number"
                             />
-                            {isError.jumlah && <p>Jumlah Wajib Diisi</p>}
+                            {isError.jumlah && <Alert>Jumlah Wajib Diisi</Alert>}
                         </div>
                         <input type="submit" value="Submit" className={styles.form__submit} />
                     </form>

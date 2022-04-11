@@ -6,6 +6,7 @@ function Footer() {
         <nav className={styles.footer}>
             <div>
                 <h1 className={styles.footer__brand}>Covid ID</h1>
+                  <p className={styles.footer__author}>Developed by Evry Nazyli Ciptanto</p>
             </div>
             <div>
                 <ul className={styles.footer__list}>

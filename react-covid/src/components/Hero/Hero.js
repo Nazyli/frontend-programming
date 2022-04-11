@@ -12,8 +12,8 @@ function Hero() {
             Monitoring Perkembangan Covid
           </h3>
           <p className={styles.hero__description}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since.
+            Pandemi Covid-19 adalah peristiwa menyebarnya Penyakit koronavirus 2019
+            (Bahasa Inggris: Coronavirus disease 2019, disingkat Covid-19) di seluruh dunia untuk semua Negara.
           </p>
           <button className={styles.hero__button}>Vaccine</button>
         </div>
