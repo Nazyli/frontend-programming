@@ -1,7 +1,8 @@
-function Alert(props){
-    return(
-        <div>
-            <span>{props.children}</span>
+import styles from "./Alert.module.css";
+function Alert({children}) {
+    return (
+        <div className={styles.alert}>
+            <span className={styles.alert__title}>{children}</span>
         </div>
     );
 }

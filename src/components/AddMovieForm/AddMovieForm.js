@@ -14,11 +14,14 @@ function AddMovieForm(props) {
     });
     const { title, date, poster, type } = formData;
 
-    // membuat state validasi
-    const [isTitleError, setIsTitleError] = useState(false);
-    const [isDateError, setIsDateError] = useState(false);
-    const [isPosterError, setIsPosterError] = useState(false);
-    const [isTypeError, setIsTypeError] = useState(false);
+    // membuat state object validasi
+    const [isError, setIsError] = useState({
+        isTitleError: false,
+        isDateError: false,
+        isPosterError: false,
+        isTypeError: false
+    })
+    const {isTitleError, isDateError, isPosterError, isTypeError} = isError;
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -29,25 +32,24 @@ function AddMovieForm(props) {
     }
     function validation() {
         if (title === "") {
-            setIsTitleError(true)
+            setIsError({ ...isError, isTitleError: true })
             return false;
         } else if (date === "") {
-            setIsDateError(true)
-            setIsTitleError(false)
+            setIsError({ ...isError, isDateError: true, isTitleError: false  })
             return false;
         } else if (poster === "") {
-            setIsPosterError(true)
-            setIsDateError(false)
+            setIsError({ ...isError, isPosterError: true, isDateError: false })
             return false;
         } else if (type === "") {
-            setIsTypeError(true)
-            setIsPosterError(false)
+            setIsError({ ...isError, isTypeError: true, isPosterError: false })
             return false;
         } else {
-            setIsTitleError(false)
-            setIsDateError(false)
-            setIsPosterError(false)
-            setIsTypeError(false)
+            setIsError({
+                isTitleError: false,
+                isDateError: false,
+                isPosterError: false,
+                isTypeError: false,
+            })
             return true
         }
     }
