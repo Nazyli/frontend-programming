@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./Navbar.module.css"
 function Navbar() {
     return (
@@ -8,11 +9,21 @@ function Navbar() {
                 </div>
                 <div>
                     <ul className={style.navbar__list}>
-                        <li className={style.navbar__item}>Home</li>
-                        <li className={style.navbar__item}>Add Movie</li>
-                        <li className={style.navbar__item}>Popular</li>
-                        <li className={style.navbar__item}>New Playing</li>
-                        <li className={style.navbar__item}>Top Rate</li>
+                        <li className={style.navbar__item}>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li className={style.navbar__item}>
+                            <Link to="/movie/create">Add Movie</Link>
+                        </li>
+                        <li className={style.navbar__item}>
+                            <Link to="/movie/popular">Popular</Link>
+                         </li>
+                        <li className={style.navbar__item}>
+                            <Link to="/movie/now">Now Playing</Link>
+                        </li>
+                        <li className={style.navbar__item}>
+                            <Link to="/movie/top">Top Rated</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>
