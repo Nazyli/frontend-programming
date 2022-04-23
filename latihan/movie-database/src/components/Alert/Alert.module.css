@@ -1,0 +1,8 @@
+.alert {
+    margin-top: 0.5rem;
+  }
+  
+  .alert__title {
+    color: #e74c3c;
+    font-style: italic;
+  }
