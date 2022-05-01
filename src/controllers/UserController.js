@@ -24,11 +24,7 @@ const formatUser = (title) => {
         setTimeout(() => {
             resolve(
                 users.map((user) => {
-                    return {
-                        name: `${title}. ${user.name}`,
-                        age: user.age,
-                        major: user.major
-                    };
+                    return { ...user, name: `${title}. ${user.name}` };
                 }));
         }, 3000);
     });
@@ -46,9 +42,7 @@ const findByName = (name) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(
-                users.find((user) => {
-                    return user.name.includes(name);
-                }));
+                users.find((user) => user.name.includes(name)));
         }, 2000);
     });
 };
@@ -71,9 +65,7 @@ const filterByMajor = (major) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(
-                users.filter((user) => {
-                    return user.major.includes(major);
-                }));
+                users.filter((user) => user.major.includes(major)));
         }, 4000);
     });
 };
