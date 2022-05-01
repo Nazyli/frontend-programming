@@ -11,6 +11,7 @@ function AddCovidForm(props) {
         status: "",
         jumlah: "",
     })
+    const { provinsi, status, jumlah } = state;
 
     const [isError, setIsError] = useState({
         provinsi: false,
@@ -23,37 +24,50 @@ function AddCovidForm(props) {
             ...state, [e.target.name]: e.target.value
         })
     }
+
+    const validation = () => {
+        if (provinsi === "") {
+            setIsError({ ...isError, provinsi: true })
+            return false;
+        } else if (status === "") {
+            setIsError({ ...isError, status: true })
+            return false;
+        } else if (jumlah === "") {
+            setIsError({ ...isError, jumlah: true })
+            return false;
+        } else {
+            setIsError({ provinsi: false, status: false, jumlah: false, })
+            return true;
+        }
+    }
+    const findProvincesByKota = (kota) => provinces.find(e => e.kota === kota);
+
+    const updateTotalStatus = () => {
+        const province = findProvincesByKota(provinsi);
+        if (province) {
+            let jml = parseInt(jumlah);
+            if (status === "positif") {
+                province.kasus += jml;
+            } else if (status === "sembuh") {
+                province.sembuh += jml;
+            } else if (status === "meninggal") {
+                province.meninggal += jml;
+            } else if (status === "dirawat") {
+                province.dirawat += jml;
+            }
+            setProvinces([...provinces])
+            return true;
+        }
+        return false;
+    }
+
+    const resetForm = () => {
+        setState({ provinsi: "", status: "", jumlah: "" });
+        return true;
+    }
     function handleSubmit(e) {
         e.preventDefault();
-        if (state.provinsi === "") {
-            setIsError({ ...isError, provinsi: true })
-        } else if (state.status === "") {
-            setIsError({ ...isError, status: true })
-        } else if (state.jumlah === "") {
-            setIsError({ ...isError, jumlah: true })
-        } else {
-            const province = provinces.find(function (data) {
-                return data.kota === state.provinsi;
-            });
-            if (province) {
-                let jml = parseInt(state.jumlah);
-                if (state.status === "positif") {
-                    province.kasus += jml;
-                } else if (state.status === "sembuh") {
-                    province.sembuh += jml;
-                } else if (state.status === "meninggal") {
-                    province.meninggal += jml;
-                } else if (state.status === "dirawat") {
-                    province.dirawat += jml;
-                }
-                setProvinces([...provinces])
-            }
-            setIsError({
-                provinsi: false,
-                status: false,
-                jumlah: false,
-            })
-        }
+        validation() && updateTotalStatus() && resetForm();
     }
 
     return (
@@ -73,8 +87,8 @@ function AddCovidForm(props) {
                             <label htmlFor="provinsi" className={styles.form__label}>
                                 Provinsi
                             </label>
-                            <select onChange={handleChange} className={styles.form__select} name="provinsi">
-                                <option></option>
+                            <select onChange={handleChange} className={styles.form__select} name="provinsi" value={provinsi}>
+                                <option value=""></option>
                                 {
                                     provinces.map(function (data, index) {
                                         return (
@@ -90,8 +104,8 @@ function AddCovidForm(props) {
                             <label htmlFor="status" className={styles.form__label}>
                                 Status
                             </label>
-                            <select onChange={handleChange} className={styles.form__select} name="status">
-                                <option></option>
+                            <select onChange={handleChange} className={styles.form__select} name="status" value={status}>
+                                <option value=""></option>
                                 <option value="positif">Positif</option>
                                 <option value="sembuh">Sembuh</option>
                                 <option value="dirawat">Dirawat</option>
@@ -110,6 +124,7 @@ function AddCovidForm(props) {
                                 id="jumlah"
                                 className={styles.form__input}
                                 type="number"
+                                value={jumlah}
                             />
                             {isError.jumlah && <Alert>Jumlah Wajib Diisi</Alert>}
                         </div>
