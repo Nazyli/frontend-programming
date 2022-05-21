@@ -24,43 +24,47 @@
   margin-bottom: 1rem;
   font-size: 2.44rem;
 }
-.addmovie_form {
-  align-items: center;
+.form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
-.addmovie__label {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 36px;
-  text-align: left;
+.form__label {
+  margin-bottom: 1rem;
 }
-.addmovie__input {
-  width: 90%;
-  height: 43px;
-  background: #ffffff;
-  border: 2px solid #4361ee;
-  box-sizing: border-box;
+
+.form__input {
+  outline: none;
+  padding: 1rem 0.5rem;
   border-radius: 10px;
+  border: 1px solid #64748b;
 }
-.addmovie__select {
-  width: 90%;
-  height: 43px;
-  background: #ffffff;
-  border: 2px solid #4361ee;
-  box-sizing: border-box;
+
+.form__input:focus {
+  border: 1px solid #4361ee;
+}
+
+.form__select {
+  outline: none;
+  padding: 1rem 0.5rem;
   border-radius: 10px;
+  background-color: #fff;
 }
-.addmovie__submit {
-  margin-top: 1rem;
-  width: 90%;
-  height: 43px;
+
+.form__select:focus {
+  border: 1px solid #4361ee;
+}
+
+.form__button {
   padding: 0.8rem 2rem;
   border: none;
   border-radius: 10px;
   background-color: #4361ee;
   color: #fff;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Medium Screen */

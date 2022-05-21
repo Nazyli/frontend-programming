@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import Button from "../ui/button";
 import style from "./Hero.module.css";
 
 function Hero() {
   // membuat state movie
   const [movie, setMovie] = useState("");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   async function fetchMovie() {
     const url = "https://www.omdbapi.com/?apikey=fcf50ae6&i=tt2975590";
 
@@ -28,7 +30,7 @@ function Hero() {
           <p className={style.hero__description}>
             {movie.Plot}
           </p>
-          <button className={style.hero__button}>Watch</button>
+          <Button variant = "primary">Watch</Button>
         </div>
         <div className="hero__right">
           <img
