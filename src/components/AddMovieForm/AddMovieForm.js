@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import Alert from "../Alert/Alert";
+import Button from "../ui/button";
 import styles from "./AddMovieForm.module.css"
 function AddMovieForm(props) {
     const { movies, setMovies } = props;
@@ -21,7 +22,7 @@ function AddMovieForm(props) {
         isPosterError: false,
         isTypeError: false
     })
-    const {isTitleError, isDateError, isPosterError, isTypeError} = isError;
+    const { isTitleError, isDateError, isPosterError, isTypeError } = isError;
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -35,7 +36,7 @@ function AddMovieForm(props) {
             setIsError({ ...isError, isTitleError: true })
             return false;
         } else if (date === "") {
-            setIsError({ ...isError, isDateError: true, isTitleError: false  })
+            setIsError({ ...isError, isDateError: true, isTitleError: false })
             return false;
         } else if (poster === "") {
             setIsError({ ...isError, isPosterError: true, isDateError: false })
@@ -93,45 +94,68 @@ function AddMovieForm(props) {
                     <div className={styles.addmovie_form}>
                         <h2 className={styles.addmovie__title}>Add Movie</h2>
                         <form onSubmit={handleSubmit}>
-                            <label for="title" className={styles.addmovie__label}>Title</label><br />
-                            <input
-                                name="title"
-                                onChange={handleChange}
-                                type="text"
-                                id="title"
-                                className={styles.addmovie__input}
-                                value={title} /><br />
-                            {isTitleError && <Alert>Title Wajib Diisi</Alert>}
-                            <label for="year" className={styles.addmovie__label}>Year</label><br />
-                            <input
-                                name="date"
-                                onChange={handleChange}
-                                type="number "
-                                id="date"
-                                className={styles.addmovie__input}
-                                value={date} /><br />
-                            {isDateError && <Alert>Date Wajib Diisi</Alert>}
-                            <label for="poster" className={styles.addmovie__label}>Poster</label><br />
-                            <input
-                                name="poster"
-                                onChange={handleChange}
-                                type="text"
-                                id="poster"
-                                className={styles.addmovie__input}
-                                value={poster} /><br />
-                            {isPosterError && <Alert>Poster Wajib Diisi</Alert>}
-                            <label for="type" className={styles.addmovie__label}>Type</label><br />
-                            <select onChange={handleChange} className={styles.addmovie__select} name="type">
-                                <option></option>
-                                <option value="action">Action</option>
-                                <option value="drama">Drama</option>
-                                <option value="comedy">Comedy</option>
-                                <option value="romantic">Romantic</option>
-                            </select>
-                            {isTypeError && <Alert>Type Wajib Diisi</Alert>}
-
-                            <input type="submit" value="Submit" className={styles.addmovie__submit} />
-
+                            <div className={styles.form__group}>
+                                <label htmlFor="title" className={styles.form__label}>
+                                    Title
+                                </label>
+                                <input
+                                    id="title"
+                                    className={styles.form__input}
+                                    type="text"
+                                    name="title"
+                                    value={title}
+                                    onChange={handleChange}
+                                />
+                                {isTitleError && <Alert>Title Wajib Diisi</Alert>}
+                            </div>
+                            <div className={styles.form__group}>
+                                <label htmlFor="date" className={styles.form__label}>
+                                    Date
+                                </label>
+                                <input
+                                    id="date"
+                                    className={styles.form__input}
+                                    type="text"
+                                    name="date"
+                                    value={date}
+                                    onChange={handleChange}
+                                />
+                                {isDateError && <Alert>Date Wajib Diisi</Alert>}
+                            </div>
+                            <div className={styles.form__group}>
+                                <label htmlFor="poster" className={styles.form__label}>
+                                    Poster
+                                </label>
+                                <input
+                                    onChange={handleChange}
+                                    id="poster"
+                                    className={styles.form__input}
+                                    name="poster"
+                                    type="text"
+                                    value={poster}
+                                />
+                                {isPosterError && <Alert>Poster Wajib Diisi</Alert>}
+                            </div>
+                            <div className={styles.form__group}>
+                                <label htmlFor="type" className={styles.form__label}>
+                                    Type
+                                </label>
+                                <select
+                                    id="type"
+                                    className={styles.form__select}
+                                    name="type"
+                                    value={type}
+                                    onChange={handleChange}
+                                >
+                                    <option value="Action">Action</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Horor">Horor</option>
+                                </select>
+                                {isTypeError && <Alert>Type Wajib Diisi</Alert>}
+                            </div>
+                            <div>
+                                <Button variant="secondary" full>Add Movie</Button>
+                            </div>
                         </form>
                     </div>
 

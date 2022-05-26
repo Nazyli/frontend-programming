@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import style from "./Hero.module.css";
+import Button from "../ui/button";
+import { StyledHero, ComponentOne, ComponentTwo } from "./Hero.styled";
+
 
 function Hero() {
   // membuat state movie
   const [movie, setMovie] = useState("");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   async function fetchMovie() {
     const url = "https://www.omdbapi.com/?apikey=fcf50ae6&i=tt2975590";
 
@@ -18,27 +21,20 @@ function Hero() {
   console.log(movie);
 
   return (
-    <div className={style.container}>
-      <section className={style.hero}>
-        <div className={style.hero__left}>
-          <h2 className={style.hero__title}>{movie.Title}</h2>
-          <h3 className={style.hero__genre}>
-           Genre : {movie.Genre}
-          </h3>
-          <p className={style.hero__description}>
-            {movie.Plot}
-          </p>
-          <button className={style.hero__button}>Watch</button>
-        </div>
-        <div className="hero__right">
-          <img
-            className={style.hero__image}
-            src={movie.Poster}
-            alt={movie.Title}
+    <StyledHero>
+      <section>
+        <ComponentOne>
+          <h2>{movie.Title}</h2>
+          <h3>Genre : {movie.Genre} </h3>
+          <p>{movie.Plot}</p>
+          <Button variant="primary" size="lg">Watch</Button>
+        </ComponentOne>
+        <ComponentTwo>
+          <img src={movie.Poster} alt={movie.Title}
           />
-        </div>
+        </ComponentTwo>
       </section>
-    </div>
+    </StyledHero>
   );
 }
 
