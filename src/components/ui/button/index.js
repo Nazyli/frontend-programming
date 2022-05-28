@@ -6,6 +6,7 @@ const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
   color: #fff;
+  text-decoration: none;
 
   /* Access Props Variant */
   background-color: ${({ variant, theme }) => (variant) ? theme.colors[variant] : theme.colors.primary};

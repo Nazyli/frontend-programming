@@ -21,13 +21,11 @@ function Movies(props) {
   return (
     <div className={style.container}>
       <section className={style.movies}>
-        <h2 className={style.movies__title}>Latest Movies</h2>
+        <h2 className={style.movies__title}>{props.title}</h2>
         <div className={style.movie__container}>
-          {
-            movies.map(function (movie) {
-              return <Movie key={movie.id} movie={movie} />
-            })
-          }
+        {movies.map((movie) => {
+              return <Movie key={movie.id} movie={movie} />;
+            })}
         </div>
         <button onClick={tambahFilm}>Add Movie</button>
       </section>

@@ -11,7 +11,7 @@ function Home() {
         <div>
             <main>
                 <Hero />
-                <Movies movies={movies} setMovies={setMovies} />
+                <Movies movies={movies} setMovies={setMovies} title="Latest Movies" />
                 <AddMovieForm movies={movies} setMovies={setMovies} />
             </main>
         </div>
