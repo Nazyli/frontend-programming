@@ -154,7 +154,7 @@ function AddMovieForm(props) {
                                 {isTypeError && <Alert>Type Wajib Diisi</Alert>}
                             </div>
                             <div>
-                                <Button variant="primary" full>Add Movie</Button>
+                                <Button variant="secondary" full>Add Movie</Button>
                             </div>
                         </form>
                     </div>

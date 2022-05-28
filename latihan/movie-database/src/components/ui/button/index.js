@@ -6,6 +6,7 @@ const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
   color: #fff;
+  text-decoration: none;
 
   /* Access Props Variant */
   background-color: ${({ variant, theme }) => (variant) ? theme.colors[variant] : theme.colors.primary};
@@ -17,6 +18,7 @@ const Button = styled.button`
       display: block;
       width: 100%;
     `}
+    ${({ theme, size }) => (size) ? theme.sizes[size] : theme.sizes.md};
 `;
 
 export default Button;

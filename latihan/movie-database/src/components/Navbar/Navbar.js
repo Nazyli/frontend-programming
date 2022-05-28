@@ -1,33 +1,34 @@
 import { Link } from "react-router-dom";
-import style from "./Navbar.module.css"
+import StyledNavbar from "./Navbar.styled";
+
 function Navbar() {
     return (
-        <div className={style.container}>
-            <nav className={style.navbar}>
+        <StyledNavbar>
+            <nav>
                 <div>
-                    <h1 className={style.navbar__brand}>Movie App</h1>
+                    <h1>Movie App</h1>
                 </div>
                 <div>
-                    <ul className={style.navbar__list}>
-                        <li className={style.navbar__item}>
-                            <Link className={style.navbar__link} to="/">Home</Link>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
                         </li>
-                        <li className={style.navbar__item}>
-                            <Link className={style.navbar__link} to="/movie/create">Add Movie</Link>
+                        <li>
+                            <Link to="/movie/create">Add Movie</Link>
                         </li>
-                        <li className={style.navbar__item}>
-                            <Link className={style.navbar__link} to="/movie/popular">Popular</Link>
-                         </li>
-                        <li className={style.navbar__item}>
-                            <Link className={style.navbar__link} to="/movie/now">Now Playing</Link>
+                        <li>
+                            <Link to="/movie/popular">Popular</Link>
                         </li>
-                        <li className={style.navbar__item}>
-                            <Link className={style.navbar__link} to="/movie/top">Top Rated</Link>
+                        <li>
+                            <Link to="/movie/now">Now Playing</Link>
+                        </li>
+                        <li>
+                            <Link to="/movie/top">Top Rated</Link>
                         </li>
                     </ul>
                 </div>
             </nav>
-        </div>
+        </StyledNavbar>
     )
 };
 
