@@ -24,3 +24,4 @@ Prodi  : Teknik Informatika
 * Tugas Pertemuan 9 : [Link](https://github.com/Nazyli/frontend-programming/tree/pertemuan-9)
 * Tugas Pertemuan 10 : [Link](https://github.com/Nazyli/frontend-programming/tree/pertemuan-10)
 * Tugas Pertemuan 11 : [Link](https://github.com/Nazyli/frontend-programming/tree/pertemuan-11)
+* Tugas Pertemuan 12 : [Link](https://github.com/Nazyli/frontend-programming/tree/pertemuan-12)
