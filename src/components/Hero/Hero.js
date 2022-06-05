@@ -1,24 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ENDPOINTS from "../../utils/constants/endpoints";
 import Button from "../ui/button";
 import { StyledHero, ComponentOne, ComponentTwo } from "./Hero.styled";
 
 function Hero() {
   // membuat state movie
   const [movie, setMovie] = useState("");
-  const API_KEY = process.env.REACT_APP_API_KEY;
-  const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
-  const trailer =
-    movie && `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`;
+  const genres = movie && movie.genres.map((genre) => genre.name).join(", ")
+  const trailer = movie && `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(getDetailMovie, []);
 
   // GET 1 Trending
   async function getTrendingMovie() {
-    const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
-    const response = await axios(URL);
-    return response.data.results[Math.floor(Math.random() * 20 + 1)];
+    const response = await axios(ENDPOINTS.TRENDING);
+    return response.data.results[Math.floor((Math.random() * 20) + 1)];
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -28,8 +26,7 @@ function Hero() {
     const id = trendingMovie.id;
 
     // get detail
-    const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
-    const response = await axios(URL);
+    const response = await axios(ENDPOINTS.DETAIL(id));
     setMovie(response.data);
   }
 
