@@ -9,6 +9,12 @@ const StyledMovie = styled.div`
     height: auto;
     margin-bottom: 1rem;
   }
+  a {
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: none;
+  }
 
   h3 {
     color: #4361ee;

@@ -17,7 +17,7 @@ function Hero() {
   async function getTrendingMovie() {
     const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
     const response = await axios(URL)
-    return response.data.results[0]
+    return response.data.results[Math.floor((Math.random() * 20) + 1)]
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -48,7 +48,7 @@ function Hero() {
         <div className="hero__right">
           <img
             className={style.hero__image}
-            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+            src={movie && `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
             alt={movie.title}
           />
         </div>
