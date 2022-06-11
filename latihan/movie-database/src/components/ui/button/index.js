@@ -18,7 +18,8 @@ const Button = styled.button`
       display: block;
       width: 100%;
     `}
-    ${({ theme, size }) => (size) ? theme.sizes[size] : theme.sizes.md};
+    font-size: ${({ theme, size }) => (size) ? theme.fontsize[size] : theme.fontsize.md};
+    padding: ${({ theme, size }) => (size) ? theme.padding[size] : theme.padding.md};
 `;
 
 export default Button;

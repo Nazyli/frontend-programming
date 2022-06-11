@@ -1,23 +1,10 @@
+import { useSelector } from "react-redux";
 import Movie from "../Movie/Movie";
 import style from "./Movies.module.css";
-import { nanoid } from "nanoid"
 
 function Movies(props) {
-  const {movies, setMovies} = props;
+  const movies = useSelector((store) => store.moviesReducer.movies);
 
-  function tambahFilm() {
-    const movie = {
-      id: nanoid(4),
-      title: "One Piece: Red",
-      year: "2021",
-      type: "Movie",
-      poster:
-        "https://picsum.photos/200/300?random=" + nanoid(2),
-    }
-    // copy and merge array
-    setMovies([...movies, movie])
-    // setMovies(movies.concat(movie))
-  }
   return (
     <div className={style.container}>
       <section className={style.movies}>
@@ -27,7 +14,6 @@ function Movies(props) {
               return <Movie key={movie.id} movie={movie} />;
             })}
         </div>
-        <button onClick={tambahFilm}>Add Movie</button>
       </section>
     </div>
   );

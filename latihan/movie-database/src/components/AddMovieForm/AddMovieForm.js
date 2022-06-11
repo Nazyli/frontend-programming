@@ -1,10 +1,14 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addMovie } from "../../features/moviesSlice";
 import Alert from "../Alert/Alert";
 import Button from "../ui/button";
 import styles from "./AddMovieForm.module.css"
-function AddMovieForm(props) {
-    const { movies, setMovies } = props;
+function AddMovieForm() {
+    const navigation = useNavigate();
+    const dispatch = useDispatch();
 
     // membuat state object
     const [formData, setFormData] = useState({
@@ -54,7 +58,7 @@ function AddMovieForm(props) {
             return true
         }
     }
-    function addMovie() {
+    function submitMovie() {
         const movie = {
             id: nanoid(),
             title: title,
@@ -63,7 +67,7 @@ function AddMovieForm(props) {
             poster: poster,
         }
 
-        setMovies([...movies, movie])
+        dispatch(addMovie(movie))
         return true;
     }
     function resetForm() {
@@ -77,7 +81,8 @@ function AddMovieForm(props) {
     function handleSubmit(e) {
         // mencegah perilaku default: refersh
         e.preventDefault();
-        validation() && addMovie() && resetForm();
+        validation() && submitMovie() && resetForm();
+        navigation("/");
     }
 
     return (

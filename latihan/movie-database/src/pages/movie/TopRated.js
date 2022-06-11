@@ -1,12 +1,13 @@
 import Movies from "../../components/Movies/Movies";
 import Hero from "../../components/Hero/Hero";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-function TopRatedMovie() {
-    const API_KEY = process.env.REACT_APP_API_KEY
-    const URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
+import ENDPOINTS from "../../utils/constants/endpoints";
+import { updateMovie } from "../../features/moviesSlice";
+import { useDispatch } from "react-redux";
 
-    const [movies, setMovies] = useState([]);
+function TopRatedMovie() {
+    const dispatch = useDispatch();
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -16,14 +17,14 @@ function TopRatedMovie() {
     }, [])
 
     async function getPopularMovies() {
-        const response = await axios(URL)
-        setMovies(response.data.results)
+        const response = await axios(ENDPOINTS.TOP_RATED)
+        dispatch(updateMovie(response.data.results))
     }
 
     return (
         <div>
             <Hero />
-            <Movies movies={movies} title="Top Rated" />
+            <Movies title="Top Rated" />
         </div>
     );
 }
