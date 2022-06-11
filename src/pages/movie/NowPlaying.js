@@ -1,12 +1,13 @@
 import Movies from "../../components/Movies/Movies";
 import Hero from "../../components/Hero/Hero";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import ENDPOINTS from "../../utils/constants/endpoints";
+import { useDispatch } from "react-redux";
+import { updateMovie } from "../../features/moviesSlice";
 
 function NowPlayingMovie() {
-  const [movies, setMovies] = useState([]);
-
+  const dispatch = useDispatch();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -16,13 +17,13 @@ function NowPlayingMovie() {
 
   async function getPopularMovies() {
     const response = await axios(ENDPOINTS.NOW_PLAYING)
-    setMovies(response.data.results)
+    dispatch(updateMovie(response.data.results))
   }
 
   return (
     <div>
       <Hero />
-      <Movies movies={movies} title="Now Playing Movie" />
+      <Movies title="Now Playing Movie" />
     </div>
   );
 }

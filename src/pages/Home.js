@@ -1,25 +1,21 @@
-import { useState } from "react";
-import AddMovieForm from "../components/AddMovieForm/AddMovieForm";
+// import { useDispatch } from "react-redux";
 import Hero from "../components/Hero/Hero";
 import Movies from "../components/Movies/Movies";
-import data from "../utils/constants/data";
+// import { updateMovie } from "../features/moviesSlice";
+// import data from "../utils/constants/data";
 
 function Home() {
-    const [movies, setMovies] = useState(data);
+    // const dispatch = useDispatch();
+    // dispatch(updateMovie(data))
 
     return (
         <div>
             <main>
                 <Hero />
-                <Movies movies={movies} setMovies={setMovies} title="Latest Movies" />
-                <AddMovieForm movies={movies} setMovies={setMovies} />
+                <Movies title="Latest Movies" />
             </main>
         </div>
     );
-
-    // return(
-    //     <Counter></Counter>
-    // )
 };
 
 export default Home;

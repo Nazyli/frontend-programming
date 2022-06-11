@@ -1,10 +1,13 @@
 import Movies from "../../components/Movies/Movies";
 import Hero from "../../components/Hero/Hero";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import ENDPOINTS from "../../utils/constants/endpoints";
+import { updateMovie } from "../../features/moviesSlice";
+import { useDispatch } from "react-redux";
+
 function TopRatedMovie() {
-    const [movies, setMovies] = useState([]);
+    const dispatch = useDispatch();
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -15,13 +18,13 @@ function TopRatedMovie() {
 
     async function getPopularMovies() {
         const response = await axios(ENDPOINTS.TOP_RATED)
-        setMovies(response.data.results)
+        dispatch(updateMovie(response.data.results))
     }
 
     return (
         <div>
             <Hero />
-            <Movies movies={movies} title="Top Rated" />
+            <Movies title="Top Rated" />
         </div>
     );
 }
