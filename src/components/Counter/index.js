@@ -10,7 +10,7 @@ function Counter() {
     }
     // Use Effect dijalankan pada lifecycle mount dan update
     const updateDom = () => {
-        console.log("Life cycle dimount")
+        // console.log("Life cycle dimount")
         // melakukan side effect mengakses DOM
         document.title = `Hasil : ${angka}`
     }
@@ -18,7 +18,7 @@ function Counter() {
     // [] -> dijalankan pada lifecycle mount saja useEffect(updateDom, [])
     // [angka] -> ketika state yang di dalam array berubah jalankan useEffect
 
-    console.log("Life cycle dirender")
+    // console.log("Life cycle dirender")
     return (
         <div>
             <p>Hasil : {angka}</p>
