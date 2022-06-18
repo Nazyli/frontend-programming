@@ -16,3 +16,5 @@ Prodi  : Teknik Informatika
 ## Screenshots
 
 ### Results
+> `Vercel :` https://movie-database-nazyli.vercel.app/  
+> `Github Pages:` https://nazyli.github.io/movie-database/

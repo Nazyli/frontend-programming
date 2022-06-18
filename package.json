@@ -1,6 +1,6 @@
 {
   "name": "movie-database",
-  "homepage": "https://nazyli.github.io/frontend-programming",
+  "homepage": "https://nazyli.github.io/movie-database/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
