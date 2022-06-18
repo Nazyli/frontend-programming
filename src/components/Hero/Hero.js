@@ -8,7 +8,7 @@ function Hero() {
   // membuat state movie
   const [movie, setMovie] = useState("");
   const genres = movie && movie.genres.map((genre) => genre.name).join(", ")
-  const trailer = movie && `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`
+  const trailer = movie && movie.videos.results && `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(getDetailMovie, []);

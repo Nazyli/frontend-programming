@@ -1,5 +1,5 @@
 # Frontend Programming
-# Task Pertemuan 13
+# Task Pertemuan 14
 
 STT Terpadu Nurul Fikri
 
@@ -16,4 +16,3 @@ Prodi  : Teknik Informatika
 ## Screenshots
 
 ### Results
-![picture](ss.png)
