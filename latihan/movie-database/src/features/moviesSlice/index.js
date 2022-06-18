@@ -16,8 +16,8 @@ const movieSlice = createSlice({
     reducers :{
         addMovie(state, action){
             // menambahk movie dari from ke state movies : push
-            console.log(action)
             state.movies.push(action.payload);
+            localStorage.setItem("movie-database-items", JSON.stringify(state.movies));
 
         },
         deleteMovie(){},
