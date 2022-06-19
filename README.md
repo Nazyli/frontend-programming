@@ -1,5 +1,5 @@
 # Frontend Programming
-# UJIAN TENGAH SEMESTER
+# UJIAN AKHIR SEMESTER
 
 STT Terpadu Nurul Fikri
 
