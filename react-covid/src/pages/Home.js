@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import GlobalSection from "../components/GlobalSection/GlobalSection";
 import Hero from "../components/Hero/Hero";
+import { updateGlobal } from "../features/globalSlice";
 import ENDPOINTS from "../utils/constants/endpoints";
 
 function Home() {
+  const dispatch = useDispatch();
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     getGlobal();
@@ -12,10 +16,9 @@ function Home() {
   }, []);
 
   const getGlobal = async () => {
-    const response = await axios(ENDPOINTS.GLOBAL).then((res) => {
-      return res.data;
+    await axios(ENDPOINTS.GLOBAL).then((res) => {
+      dispatch(updateGlobal(res.data));
     });
-    console.log(response);
   };
 
   return (

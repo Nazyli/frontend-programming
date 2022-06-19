@@ -2,24 +2,24 @@ import Heading from "../../ui/heading";
 import { StyledSectionCard } from "./SectionCard.styled";
 
 function SectionCard(props) {
-  const { dataCovid } = props;
+  const { total, status } = props;
 
   let variantColor;
-  if (dataCovid.status === "Positif") {
+  if (status === "Confirmed") {
     variantColor = "primary";
-  } else if (dataCovid.status === "Sembuh") {
+  } else if (status === "Recovered") {
     variantColor = "success";
-  } else if (dataCovid.status === "Meninggal") {
+  } else if (status === "Death") {
     variantColor = "danger";
   }
 
   return (
     <StyledSectionCard>
       <Heading level="3" variant="primary" align="center">
-        {dataCovid.status}
+        {status}
       </Heading>
       <Heading level="4" variant={variantColor} align="center">
-        {dataCovid.total.toLocaleString("id-ID")}
+        {total.toLocaleString("id-ID")}
       </Heading>
     </StyledSectionCard>
   );

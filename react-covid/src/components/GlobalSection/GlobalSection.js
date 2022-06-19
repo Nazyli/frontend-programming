@@ -1,12 +1,10 @@
-import data from "../../utils/constants/indonesia";
-import { useState } from "react";
 import SectionCard from "./SectionCard/SectionCard";
 import Heading from "../ui/heading";
 import { StyledGlobalSection, StyledSection } from "./GlobalSection.styled";
+import { useSelector } from "react-redux";
 
 function GlobalSection({ title }) {
-  const [indonesia] = useState(data.indonesia);
-
+  const global = useSelector((store) => store.globalReducer.global);
   return (
     <StyledGlobalSection>
       <section>
@@ -17,9 +15,9 @@ function GlobalSection({ title }) {
           Data Covid Berdasarkan {title}
         </Heading>
         <StyledSection>
-          {indonesia.map(function (dataCovid, i) {
-            return <SectionCard dataCovid={dataCovid} key={i} />;
-          })}
+          <SectionCard total={global.confirmed.value} status="Confirmed" />
+          <SectionCard total={global.recovered.value} status="Recovered" />
+          <SectionCard total={global.deaths.value} status="Death" />
         </StyledSection>
       </section>
     </StyledGlobalSection>
