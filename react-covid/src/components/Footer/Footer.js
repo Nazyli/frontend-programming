@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Heading from "../ui/heading";
-import StyledFooter from "./Footer.styled";
+import StyledNavbar from "../ui/navbar";
 
 function Footer() {
   return (
-    <StyledFooter>
+    <StyledNavbar>
       <nav>
         <div>
           <Heading level="1" variant="light" align="left">
@@ -13,14 +14,20 @@ function Footer() {
         </div>
         <div>
           <ul>
-            <li>Global</li>
-            <li>Indonesia</li>
-            <li>Provinsi</li>
+            <li>
+              <Link to="/">Global</Link>
+            </li>
+            <li>
+              <Link to="/indonesia">Indonesia</Link>
+            </li>
+            <li>
+              <Link to="/provinsi">Provinsi</Link>
+            </li>
             <li>About</li>
           </ul>
         </div>
       </nav>
-    </StyledFooter>
+    </StyledNavbar>
   );
 }
 

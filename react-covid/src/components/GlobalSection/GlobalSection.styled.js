@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const StyledGlobalSection = styled.div`
   background-color: #ecf0f1;
-  margin: 1rem;
   padding-top: 1rem;
   padding-bottom: 3rem;
   h3{
@@ -28,7 +27,6 @@ const StyledSection = styled.div`
   justify-content: center;
   align-items: center;
   @media (min-width: 992px) {
-    max-width: 1200px;
     margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;

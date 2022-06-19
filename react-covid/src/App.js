@@ -1,6 +1,10 @@
 import { ThemeProvider } from "styled-components";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import theme from "./utils/constants/theme";
+import Indonesia from "./pages/covid/Indonesia";
+import Provinsi from "./pages/covid/Provinsi";
 
 function App() {
   return (
@@ -10,7 +14,13 @@ function App() {
        * Jika ingin diubah, maka ubah di Halaman Home.
        */}
       <ThemeProvider theme={theme}>
-        <Home />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/indonesia" element={<Indonesia />} />
+            <Route path="/provinsi" element={<Provinsi />} />
+          </Routes>
+        </Layout>
       </ThemeProvider>
     </div>
   );

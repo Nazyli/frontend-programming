@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledFooter = styled.div`
+const StyledNavbar = styled.div`
   background-color: #1e90ff;
   padding: 1rem;
   color: #fff;
@@ -8,12 +8,8 @@ const StyledFooter = styled.div`
     display: flex;
     flex-direction: column;
   }
-  h1 {
-    font-size: 2rem;
-  }
-  p {
-    font-size: 14px;
-    text-align: left;
+  h1{
+    font-size:2rem;
   }
   ul {
     font-size: 16px;
@@ -22,6 +18,10 @@ const StyledFooter = styled.div`
   }
   li {
     margin-bottom: 1rem;
+  }
+  a {
+    text-decoration: none;
+    color:#fff;
   }
   @media (min-width: 768px) {
     nav {
@@ -43,4 +43,4 @@ const StyledFooter = styled.div`
   }
 `;
 
-export default StyledFooter;
+export default StyledNavbar;

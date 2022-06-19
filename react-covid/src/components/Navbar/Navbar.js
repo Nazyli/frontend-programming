@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import Heading from "../ui/heading";
-import StyledNavbar from "./Navbar.styled";
+import StyledNavbar from "../ui/navbar";
 
 function Navbar() {
   return (
@@ -12,9 +13,15 @@ function Navbar() {
         </div>
         <div>
           <ul>
-            <li>Global</li>
-            <li>Indonesia</li>
-            <li>Provinsi</li>
+            <li>
+              <Link to="/">Global</Link>
+            </li>
+            <li>
+              <Link to="/indonesia">Indonesia</Link>
+            </li>
+            <li>
+              <Link to="/provinsi">Provinsi</Link>
+            </li>
             <li>About</li>
           </ul>
         </div>
