@@ -1,13 +1,13 @@
-import styles from "./Provinces.module.css";
 import TableProvinces from "./TableProvinces/TableProvinces";
 import Heading from "../ui/heading";
+import StyledProvinces from "./Provinces.styled";
 
 
 function Provinces(props) {
   const { provinces } = props;
 
   return (
-    <div className={styles.container}>
+    <StyledProvinces>
       <section>
         <Heading level="2" variant="primary" align="center">
           Provinsi
@@ -17,7 +17,7 @@ function Provinces(props) {
         </Heading>
         <TableProvinces provinces={provinces} />
       </section>
-    </div>
+      </StyledProvinces>
   );
 }
 

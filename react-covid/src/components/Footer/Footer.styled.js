@@ -13,7 +13,7 @@ const StyledFooter = styled.div`
   }
   p {
     font-size: 14px;
-    text-align: center;
+    text-align: left;
   }
   ul {
     font-size: 16px;

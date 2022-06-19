@@ -1,26 +1,24 @@
 import TableBody from "../TableBody/TableBody";
 import TableHead from "../TableHead/TableHead";
-import styles from "./TableProvinces.module.css";
+import StyledTableProvinces from "./TableProvinces.styled";
 
 function TableProvinces(props) {
   const { provinces } = props;
   return (
-    <div className={styles.provinces_container}>
-      <table className={styles.provinces_table}>
+    <StyledTableProvinces>
+      <table>
         <thead>
           <TableHead />
         </thead>
         <tbody>
-          {
-            provinces.map(function (data, index) {
-              return <TableBody key={index} index={index} data={data} />
-            })
-          }
+          {provinces.map(function (data, index) {
+            return <TableBody key={index} index={index} data={data} />;
+          })}
         </tbody>
         <tfoot></tfoot>
       </table>
-    </div>
+    </StyledTableProvinces>
   );
-};
+}
 
 export default TableProvinces;
