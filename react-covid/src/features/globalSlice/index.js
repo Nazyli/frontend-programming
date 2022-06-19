@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import imageDefault from "../../assets/img/summary.png";
+
 
 const globalSlice = createSlice({
   name: "Global Slice",
@@ -14,16 +16,20 @@ const globalSlice = createSlice({
         value: 0,
       },
     },
+    summary:imageDefault 
   },
   reducers: {
     updateGlobal(state, action) {
       state.global = action.payload;
     },
+    updateSummary(state, action) {
+      state.summary = action.payload;
+    },
   },
 });
 
 const globalReducer = globalSlice.reducer;
-const { updateGlobal } = globalSlice.actions;
+const { updateGlobal, updateSummary } = globalSlice.actions;
 
 export default globalReducer;
-export { updateGlobal };
+export { updateGlobal, updateSummary };

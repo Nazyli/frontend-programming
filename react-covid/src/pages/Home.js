@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import GlobalSection from "../components/GlobalSection/GlobalSection";
 import Hero from "../components/Hero/Hero";
-import { updateGlobal } from "../features/globalSlice";
+import Summary from "../components/Summary/Summary";
+import { updateGlobal, updateSummary } from "../features/globalSlice";
 import ENDPOINTS from "../utils/constants/endpoints";
 
 function Home() {
@@ -19,12 +20,14 @@ function Home() {
     await axios(ENDPOINTS.GLOBAL).then((res) => {
       dispatch(updateGlobal(res.data));
     });
+    dispatch(updateSummary(ENDPOINTS.SUMMARY_GLOBAL));
   };
 
   return (
     <>
       <Hero />
       <GlobalSection title="Global" />
+      <Summary title="Global" />
     </>
   );
 }
