@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 const StyledHeading = styled.h1`
   font-family: "Poppins", sans-serif;
+  margin: 10px 0;
   color: ${({ variant, theme }) =>
     variant ? theme.colors[variant] : theme.colors.primary};
   text-align: ${({ align }) => (align ? align : "left")};
