@@ -1,3 +1,4 @@
+import Heading from "../ui/heading";
 import styles from "./Navbar.module.css"
 
 function Navbar() {
@@ -5,7 +6,7 @@ function Navbar() {
     <div className={styles.container}>
         <nav className={styles.navbar}>
             <div>
-                <h1 className={styles.navbar__brand}>Covid ID</h1>
+                <Heading level="1" variant="light">Covid ID</Heading>
             </div>
             <div>
                 <ul className={styles.navbar__list}>

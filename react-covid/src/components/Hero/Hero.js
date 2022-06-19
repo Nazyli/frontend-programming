@@ -1,5 +1,7 @@
 import styles from "./Hero.module.css";
 import mainLogo from "../../assets/img/medical.png"
+import Button from "../ui/button";
+import Heading from "../ui/heading";
 
 
 function Hero() {
@@ -7,15 +9,13 @@ function Hero() {
     <div className={styles.container}>
       <section className={styles.hero}>
         <div className={styles.hero__left}>
-          <h2 className={styles.hero__title}>Covid ID</h2>
-          <h3 className={styles.hero__sub_title}>
-            Monitoring Perkembangan Covid
-          </h3>
+          <Heading level="2" variant="primary">Covid ID</Heading>
+          <Heading level="3" variant="secondary">Monitoring Perkembangan Covid</Heading>
           <p className={styles.hero__description}>
             Pandemi Covid-19 adalah peristiwa menyebarnya Penyakit koronavirus 2019
             (Bahasa Inggris: Coronavirus disease 2019, disingkat Covid-19) di seluruh dunia untuk semua Negara.
           </p>
-          <button className={styles.hero__button}>Vaccine</button>
+          <Button as ="a" href ="#" target="_blank" variant="primary" size="lg">Vaccine</Button>
         </div>
         <div className="hero__right">
           <img

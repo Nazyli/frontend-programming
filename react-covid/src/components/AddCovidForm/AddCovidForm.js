@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./AddCovidForm.module.css"
 import formLogo from "../../assets/img/conceptual_idea.png"
 import Alert from "../Alert/Alert"
+import Button from "../ui/button";
 
 function AddCovidForm(props) {
     const { provinces, setProvinces } = props;
@@ -128,7 +129,7 @@ function AddCovidForm(props) {
                             />
                             {isError.jumlah && <Alert>Jumlah Wajib Diisi</Alert>}
                         </div>
-                        <input type="submit" value="Submit" className={styles.form__submit} />
+                        <Button variant="secondary" size="lg" full>Vaccine</Button>
                     </form>
 
                 </div>

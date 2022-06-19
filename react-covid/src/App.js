@@ -1,4 +1,6 @@
+import { ThemeProvider } from "styled-components";
 import Home from "./pages/Home";
+import theme from "./utils/constants/theme";
 
 function App() {
   return (
@@ -7,7 +9,9 @@ function App() {
        * Render Halaman Home
        * Jika ingin diubah, maka ubah di Halaman Home.
        */}
-      <Home />
+      <ThemeProvider theme={theme}>
+        <Home />
+      </ThemeProvider>
     </div>
   );
 }

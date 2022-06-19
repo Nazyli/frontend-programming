@@ -1,5 +1,7 @@
 import styles from "./Provinces.module.css";
 import TableProvinces from "./TableProvinces/TableProvinces";
+import Heading from "../ui/heading";
+
 
 function Provinces(props) {
   const { provinces } = props;
@@ -7,11 +9,15 @@ function Provinces(props) {
   return (
     <div className={styles.container}>
       <section>
-        <h2 className={styles.section__title}>Provinsi</h2>
-        <h3 className={styles.section__description}>Data Covid Berdasarkan Provinsi</h3>
+        <Heading level="2" variant="primary" align="center">
+          Provinsi
+        </Heading>
+        <Heading level="3" variant="secondary" align="center">
+          Data Covid Berdasarkan Provinsi
+        </Heading>
         <TableProvinces provinces={provinces} />
-      </section >
-    </div >
+      </section>
+    </div>
   );
 }
 
