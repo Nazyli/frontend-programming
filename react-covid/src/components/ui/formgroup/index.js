@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const FormGroup = styled.div`
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;

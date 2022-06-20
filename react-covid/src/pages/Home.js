@@ -19,8 +19,8 @@ function Home() {
   const getGlobal = async () => {
     await axios(ENDPOINTS.GLOBAL).then((res) => {
       dispatch(updateGlobal(res.data));
+      dispatch(updateSummary(ENDPOINTS.SUMMARY_GLOBAL));
     });
-    dispatch(updateSummary(ENDPOINTS.SUMMARY_GLOBAL));
   };
 
   return (

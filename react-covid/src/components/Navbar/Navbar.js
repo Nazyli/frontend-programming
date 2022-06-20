@@ -23,6 +23,9 @@ function Navbar() {
               <Link to="/provinsi">Provinsi</Link>
             </li>
             <li>
+              <Link to="/negara">Negara</Link>
+            </li>
+            <li>
               <Link to="/about">About</Link>
             </li>
           </ul>

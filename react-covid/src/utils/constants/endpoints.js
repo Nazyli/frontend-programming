@@ -5,6 +5,7 @@ const ENDPOINTS = {
     INDONESIA: `${BASE_URL}/api/countries/indonesia`,
     SUMMARY_GLOBAL: `${BASE_URL}/api/og`,
     SUMMARY_INDONESIA: `${BASE_URL}/api/countries/indonesia/og`,
+    COUNTRIES: `${BASE_URL}/api/countries`,
 }
  
 export default ENDPOINTS;

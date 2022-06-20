@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import formLogo from "../../assets/img/conceptual_idea.png";
 import Alert from "../Alert/Alert";
 import Button from "../ui/button";
@@ -48,7 +48,8 @@ function AddCovidForm() {
       return true;
     }
   };
-  const findProvincesByKota = (kota) => provinces.findIndex((e) => e.kota === kota);
+  const findProvincesByKota = (kota) =>
+    provinces.findIndex((e) => e.kota === kota);
 
   const updateTotalStatus = () => {
     let idx = findProvincesByKota(provinsi);
@@ -57,11 +58,23 @@ function AddCovidForm() {
       let jml = parseInt(jumlah);
       arrayCopy[idx] = {
         kota: arrayCopy[idx].kota,
-        kasus: (status === "positif") ? arrayCopy[idx].kasus + jml : arrayCopy[idx].kasus,
-        sembuh: (status === "sembuh") ? arrayCopy[idx].sembuh + jml : arrayCopy[idx].sembuh,
-        meninggal: (status === "meninggal") ? arrayCopy[idx].meninggal + jml : arrayCopy[idx].meninggal,
-        dirawat: (status === "dirawat") ? arrayCopy[idx].dirawat + jml : arrayCopy[idx].dirawat,
-      }
+        kasus:
+          status === "positif"
+            ? arrayCopy[idx].kasus + jml
+            : arrayCopy[idx].kasus,
+        sembuh:
+          status === "sembuh"
+            ? arrayCopy[idx].sembuh + jml
+            : arrayCopy[idx].sembuh,
+        meninggal:
+          status === "meninggal"
+            ? arrayCopy[idx].meninggal + jml
+            : arrayCopy[idx].meninggal,
+        dirawat:
+          status === "dirawat"
+            ? arrayCopy[idx].dirawat + jml
+            : arrayCopy[idx].dirawat,
+      };
       dispatch(updateProvinces(arrayCopy));
 
       return true;
@@ -128,9 +141,11 @@ function AddCovidForm() {
               />
               {isError.jumlah && <Alert>Jumlah Wajib Diisi</Alert>}
             </FormGroup>
-            <Button variant="secondary" size="lg" full>
-              Vaccine
-            </Button>
+            <FormGroup>
+              <Button variant="secondary" size="lg" full>
+                Vaccine
+              </Button>
+            </FormGroup>
           </form>
         </FormRight>
       </section>

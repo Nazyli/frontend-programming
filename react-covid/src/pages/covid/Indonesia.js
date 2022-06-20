@@ -19,8 +19,8 @@ function Indonesia() {
   const getIndonesia = async () => {
     await axios(ENDPOINTS.INDONESIA).then((res) => {
       dispatch(updateGlobal(res.data));
+      dispatch(updateSummary(ENDPOINTS.SUMMARY_INDONESIA));
     });
-    dispatch(updateSummary(ENDPOINTS.SUMMARY_INDONESIA));
   };
   return (
     <>

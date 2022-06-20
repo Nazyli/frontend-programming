@@ -6,6 +6,7 @@ import theme from "./utils/constants/theme";
 import Indonesia from "./pages/covid/Indonesia";
 import Provinsi from "./pages/covid/Provinsi";
 import About from "./pages/covid/About/About";
+import Negara from "./pages/covid/Negara";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/indonesia" element={<Indonesia />} />
             <Route path="/provinsi" element={<Provinsi />} />
+            <Route path="/negara" element={<Negara />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </Layout>
