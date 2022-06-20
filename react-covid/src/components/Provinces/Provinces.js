@@ -1,10 +1,11 @@
 import TableProvinces from "./TableProvinces/TableProvinces";
 import Heading from "../ui/heading";
 import StyledProvinces from "./Provinces.styled";
+import { useSelector } from "react-redux";
 
 
-function Provinces(props) {
-  const { provinces } = props;
+function Provinces() {
+  const provinces = useSelector((store) => store.provinceReducer.provinces);
 
   return (
     <StyledProvinces>

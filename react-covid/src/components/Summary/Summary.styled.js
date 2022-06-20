@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledSummary = styled.div`
   padding-top: 1rem;
+  padding-bottom: 1rem;
 
   img {
     margin-top: 2rem;

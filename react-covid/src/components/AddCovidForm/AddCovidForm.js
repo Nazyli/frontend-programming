@@ -1,13 +1,17 @@
-import { useState } from "react";
+import {  useState } from "react";
 import formLogo from "../../assets/img/conceptual_idea.png";
 import Alert from "../Alert/Alert";
 import Button from "../ui/button";
 import Heading from "../ui/heading";
 import FormGroup from "../ui/formgroup";
 import { FormLeft, FormRight, StyleAddCovidForm } from "./AddCovidForm.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProvinces } from "../../features/provinceSlice";
 
-function AddCovidForm(props) {
-  const { provinces, setProvinces } = props;
+function AddCovidForm() {
+  const dispatch = useDispatch();
+  const provinces = useSelector((store) => store.provinceReducer.provinces);
+  // const campaign = useSelector(campaignSelector);
 
   const [state, setState] = useState({
     provinsi: "",
@@ -44,22 +48,22 @@ function AddCovidForm(props) {
       return true;
     }
   };
-  const findProvincesByKota = (kota) => provinces.find((e) => e.kota === kota);
+  const findProvincesByKota = (kota) => provinces.findIndex((e) => e.kota === kota);
 
   const updateTotalStatus = () => {
-    const province = findProvincesByKota(provinsi);
-    if (province) {
+    let idx = findProvincesByKota(provinsi);
+    let arrayCopy = [...provinces];
+    if (idx >= 0) {
       let jml = parseInt(jumlah);
-      if (status === "positif") {
-        province.kasus += jml;
-      } else if (status === "sembuh") {
-        province.sembuh += jml;
-      } else if (status === "meninggal") {
-        province.meninggal += jml;
-      } else if (status === "dirawat") {
-        province.dirawat += jml;
+      arrayCopy[idx] = {
+        kota: arrayCopy[idx].kota,
+        kasus: (status === "positif") ? arrayCopy[idx].kasus + jml : arrayCopy[idx].kasus,
+        sembuh: (status === "sembuh") ? arrayCopy[idx].sembuh + jml : arrayCopy[idx].sembuh,
+        meninggal: (status === "meninggal") ? arrayCopy[idx].meninggal + jml : arrayCopy[idx].meninggal,
+        dirawat: (status === "dirawat") ? arrayCopy[idx].dirawat + jml : arrayCopy[idx].dirawat,
       }
-      setProvinces([...provinces]);
+      dispatch(updateProvinces(arrayCopy));
+
       return true;
     }
     return false;
@@ -75,13 +79,10 @@ function AddCovidForm(props) {
   }
 
   return (
-        <StyleAddCovidForm>
+    <StyleAddCovidForm>
       <section>
         <FormLeft>
-          <img
-            src={formLogo}
-            alt="placeholder"
-          />
+          <img src={formLogo} alt="placeholder" />
         </FormLeft>
         <FormRight>
           <Heading level="2" variant="primary" align="center">
@@ -92,13 +93,14 @@ function AddCovidForm(props) {
               <label htmlFor="provinsi">Provinsi</label>
               <select onChange={handleChange} name="provinsi" value={provinsi}>
                 <option value=""></option>
-                {provinces.map(function (data, index) {
-                  return (
-                    <option key={index} value={data.kota}>
-                      {data.kota}
-                    </option>
-                  );
-                })}
+                {provinces &&
+                  provinces.map(function (data, index) {
+                    return (
+                      <option key={index} value={data.kota}>
+                        {data.kota}
+                      </option>
+                    );
+                  })}
               </select>
               {isError.provinsi && <Alert>Provinsi Wajib Diisi</Alert>}
             </FormGroup>
