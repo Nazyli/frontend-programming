@@ -4,12 +4,15 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import GlobalSection from "../../components/GlobalSection/GlobalSection";
 import Hero from "../../components/Hero/Hero";
+import Spinner from "../../components/Spinner/Spinner";
 import Summary from "../../components/Summary/Summary";
 import FormGroup from "../../components/ui/formgroup";
 import { updateGlobal, updateSummary } from "../../features/globalSlice";
 import ENDPOINTS from "../../utils/constants/endpoints";
 
 function Negara() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
   const [countries, setCountries] = useState();
   const [url, setUrl] = useState(ENDPOINTS.GLOBAL);
@@ -40,10 +43,14 @@ function Negara() {
     setCountry(e.target.value);
   };
   const getData = async (e) => {
+    setIsLoading(true);
     await axios(e).then((res) => {
       dispatch(updateGlobal(res.data));
+      dispatch(updateSummary(e + "/og"));
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     });
-    dispatch(updateSummary(e + "/og"));
   };
 
   return (
@@ -63,8 +70,8 @@ function Negara() {
             })}
         </select>
       </FormGroup>
-      <GlobalSection title={country} />
-      <Summary title={country} />
+      {isLoading ? <Spinner /> : <GlobalSection title={country} />}
+      {isLoading ? <Spinner /> : <Summary title={country} />}
     </>
   );
 }
