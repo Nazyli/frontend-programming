@@ -7,15 +7,9 @@ const StyledHero = styled.div`
     flex-direction: column;
     text-align: center;
   }
-
-  p {
-    color: #64748b;
+  blockquote {
     margin-bottom: 2rem;
-    font-size: 20px;
-    line-height: 38px;
-    text-align: justify;
   }
-
   img {
     max-width: 100%;
     height: auto;

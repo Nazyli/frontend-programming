@@ -23,7 +23,9 @@ function Footer() {
             <li>
               <Link to="/provinsi">Provinsi</Link>
             </li>
-            <li>About</li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
           </ul>
         </div>
       </nav>

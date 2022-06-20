@@ -15,7 +15,7 @@ function SectionCard(props) {
 
   return (
     <StyledSectionCard>
-      <Heading level="3" variant="primary" align="center">
+      <Heading level="3" variant="navy" align="center">
         {status}
       </Heading>
       <Heading level="4" variant={variantColor} align="center">

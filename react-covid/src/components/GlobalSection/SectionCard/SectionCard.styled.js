@@ -10,7 +10,6 @@ const StyledSectionCard = styled.div`
   background-color: #fff;
   padding: 2rem 0;
   h3 {
-    color: #353b48;
     font-weight: bold;
     font-size: 30px;
     margin-bottom: 1rem;

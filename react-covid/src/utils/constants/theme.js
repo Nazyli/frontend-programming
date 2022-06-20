@@ -5,6 +5,9 @@ const thema = {
     light: "#ecf0f1",
     success: "#06d6a0",
     danger: "#ef476f",
+    navy: "#30336b",
+    orange: "#fd7e14",
+    white : "#ffffff"
   },
   fontsize: {
     sm: "0.8rem",
