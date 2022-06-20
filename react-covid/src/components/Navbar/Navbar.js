@@ -1,17 +1,25 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Heading from "../ui/heading";
-import StyledNavbar from "../ui/navbar";
+import  { StyledNavbar, FadeNavbar } from "../ui/navbar";
 
 function Navbar() {
+  
+  const [visible, setVisible] = useState(false);
+  const handleClick = (e) => {
+    setVisible(!visible);
+  };
+
   return (
     <StyledNavbar>
       <nav>
         <div>
           <Heading level="1" variant="light">
             Covid ID
+            <span onClick={handleClick}>&#9776;</span>
           </Heading>
         </div>
-        <div>
+        <FadeNavbar showpopup={String(visible)}>
           <ul>
             <li>
               <Link to="/">Global</Link>
@@ -29,7 +37,7 @@ function Navbar() {
               <Link to="/about">About</Link>
             </li>
           </ul>
-        </div>
+        </FadeNavbar>
       </nav>
     </StyledNavbar>
   );

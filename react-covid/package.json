@@ -1,5 +1,6 @@
 {
   "name": "react-covid",
+  "homepage": "https://covid19.nazyli.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

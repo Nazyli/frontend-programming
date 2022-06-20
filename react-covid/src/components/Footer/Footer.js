@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Heading from "../ui/heading";
-import StyledNavbar from "../ui/navbar";
+import { StyledNavbar } from "../ui/navbar";
 
 function Footer() {
   return (
