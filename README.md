@@ -16,4 +16,8 @@ Prodi  : Teknik Informatika
 ## Screenshots
 
 ### Results
+> `URL :` https://covid19.nazyli.com/   
+> `URL Githup Page :` https://nazyli.github.io/covid19/     
+> `Url Vercel:` https://covid19-nazyli.vercel.app/  
+
 ![picture](results.png)
